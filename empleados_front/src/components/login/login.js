@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import './login.css'
 
 export default class login extends React.Component { ///Se llama escribiendo ccc y enter
   constructor(props) {
@@ -16,7 +17,13 @@ iniciarSesion(){
     return (
       <Container id="login-container">
         <Row>
-          <Col>
+          <Col
+            sm="12"
+            xs="12"
+            md={{ span: 4, offset: 4 }}
+            lg={{ span: 4, offset: 4 }}
+            xl={{ span: 4, offset: 4 }}
+          >
             <Row>
               <h2>Iniciar Sesión</h2>
             </Row>
@@ -24,19 +31,24 @@ iniciarSesion(){
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Usuario</Form.Label>
-                  <Form.Control onChange={(e) => this.setState({ usuario: e.target.value })}/>
-                  {/* {this.state.usuario} --> para comprobar que esta capturando los datos */ } 
+                  <Form.Control
+                    onChange={(e) => this.setState({ usuario: e.target.value })}
+                  />
+                  {/* {this.state.usuario} --> para comprobar que esta capturando los datos */}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label >Contraseña</Form.Label>
-                  <Form.Control type="password" onChange={(e) => this.setState({ pass: e.target.value })}/>
+                  <Form.Label>Contraseña</Form.Label>
+                  <Form.Control
+                    type="password"
+                    onChange={(e) => this.setState({ pass: e.target.value })}
+                  />
                   {/* {this.state.pass} */}
                 </Form.Group>
 
                 <Button
                   variant="primary"
-                  onClick={()=>{
+                  onClick={() => {
                     this.iniciarSesion();
                   }}
                 >
@@ -46,6 +58,7 @@ iniciarSesion(){
             </Row>
           </Col>
         </Row>
+      
       </Container>
     );
   }
