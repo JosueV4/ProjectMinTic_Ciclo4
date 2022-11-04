@@ -4,16 +4,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Container} from 'react-bootstrap';
 //import Login from './components/login/login';
 import Menu from './components/navbar/navbar';
-import AppRouter from './components/router/router';
+import AppRoutes from './components/router/router';
+//import Inicio from './components/index/index';
 
 
-// login --> se llama mediante la siguiente estrutura
+// login --> Función para llamar los componentes
 function App() {
   return (
     <div className="App">
       <Menu />
       <Container>
-        <AppRouter />
+        {/* <Inicio /> */}
+        <AppRoutes />
       </Container>
     </div>
   );
