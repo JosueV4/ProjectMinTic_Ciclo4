@@ -3,9 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 var database = require("./config/database")  //Variable para llamar la conexión a la base de datos
 var usuariosRouter = require("./routes/usuario.router"); // Se ubica primero para luego validar el autenticador
-var auth = require("./auth/main_auth") // autenticador token
+
+//Autenticación de usuario
+var auth = require("./auth/main_auth") 
+//Dependencia para conectar API
+var cors = require('cors')
 
 var empleadosRouter = require('./routes/empleados.router'); // Llmamos a empleados router
 var noviosRouter = require('./routes/novios.router');
@@ -14,11 +19,13 @@ var noviosRouter = require('./routes/novios.router');
 var app = express();
 
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 //mongo connection
 database.mongoConnect(); // Proceso para conexión a a base de datos
